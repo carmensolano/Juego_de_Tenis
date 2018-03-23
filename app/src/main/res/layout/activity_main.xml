@@ -1,48 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.carme.tenis.MainActivity">
 
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:text="Puntuacion"
         android:textSize="30sp"
-        android:textColor="#00FF00"
+        android:textColor="@color/red"
         android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
 
         />
 
-    <TextView
-        android:id="@+id/jugador1_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/jugador2_titulo"
-        android:layout_alignBottom="@+id/jugador2_titulo"
-        android:layout_toLeftOf="@+id/titulo"
-        android:layout_toStartOf="@+id/titulo"
-        android:text="Jugador 1"
-        android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Jugador 1 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/jugador1_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jugador1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:id="@+id/counterA"
+                android:textSize="48sp"
+                android:text="0"/>
+
+            <Button
+                android:id="@+id/jugador1But1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:onClick="primerPuntoA"
+                android:text="Primer Punto"/>
 
 
-    <TextView
-        android:id="@+id/jugador2_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titulo"
+            <Button
+                android:id="@+id/jugador1But2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:onClick="segundoPuntoA"
+                android:text="Segundo Punto"/>
 
-        android:layout_marginTop="32dp"
-        android:layout_toEndOf="@+id/titulo"
-        android:layout_toRightOf="@+id/titulo"
-        android:text="Jugador 2"
-        android:textSize="20sp" />
+            <Button
+                android:id="@+id/jugador1But3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:onClick="tercerPuntoA"
+                android:text="Tercer Punto"/>
+
+            <Button
+                android:id="@+id/jugador1But4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:onClick="cuartoPuntoA"
+                android:text="Cuarto Punto"/>
+
+        </LinearLayout>
+
+        <!-- Separacion -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp"
+            android:background="@android:color/black"/>
+
+        <!-- Jugador 2 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/jugador2_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Jugador2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:id="@+id/counterB"
+                android:textSize="48sp"
+                android:text="0"/>
+
+            <Button
+                android:id="@+id/jugador2But1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:onClick="primerPuntoB"
+                android:text="Primer Punto"/>
+
+            <Button
+                android:id="@+id/jugador2But2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:onClick="segundoPuntoB"
+                android:text="Segundo Punto"/>
+
+            <Button
+                android:id="@+id/jugador2But3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:onClick="tercerPuntoB"
+                android:text="Tercer Punto"/>
+
+
+            <Button
+                android:id="@+id/jugador2But4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:onClick="cuartoPuntoB"
+                android:text="Cuarto Punto"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="newGame"
+            android:layout_marginBottom="64dp"
+            android:text="Juego Nuevo"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autor: Carmen Solano"
+            android:layout_marginBottom="32dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
 
 
 
-</>
+
+
+
+
+
+
+</LinearLayout>
+
+</LinearLayout>
